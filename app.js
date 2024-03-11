@@ -20,7 +20,7 @@ app.use(express.json());
 app.post('/generateDockerfile', async (req, res) => {
   const { githubUrl , token } = req.body;
   console.log('githubUrl:', githubUrl);
-  //My token = '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';
+  
   
   if (!githubUrl) return res.status(400).send('Missing githubUrl in request body');
 
