@@ -5,12 +5,10 @@ const docker = new Docker({socketPath: 'npipe:////./pipe/docker_engine'});
 const app = express();
 const port = 3000;
 
-// Simple Dockerfile templates for demonstration
 const dockerfileTemplates = {
   python: 'FROM python:3.8-slim\nWORKDIR /app\nCOPY . .\nRUN pip install -r requirements.txt\nCMD ["python", "app.py"]',
   node: 'FROM node:14\nWORKDIR /app\nCOPY package*.json ./\nRUN npm install\nCOPY . .\nCMD ["node", "app.js"]',
   Java: 'FROM openjdk:11\n WORKDIR /app \nCOPY . . \nEXPOSE 8080 \nCMD ["java", "-jar", "your-java-application.jar"]'
-  // Add more templates as needed
 };
 
 
