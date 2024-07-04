@@ -24,5 +24,5 @@ jobs:
 
     - name: Push the Docker image to Docker Hub
       run: |
-        docker tag ${{ github.repository }}/${{ github.event.pull_request.head.repo.full_name }}/my-image-name:$(date +%s) ${{ secrets.DOCKER_HUB_USERNAME }}/my-image-name:latest
+        docker tag ${{ github.repository }}/${{ github.event.pull_request.head.repo.full_name }}my-image-name:$(date +%s) ${{ secrets.DOCKER_HUB_USERNAME }}/my-image-name:latest
         docker push ${{ secrets.DOCKER_HUB_USERNAME }}/my-image-name:latest
