@@ -20,12 +20,12 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ${{ github.repository }}/${{ github.event.pull_request.head.repo.full_name }}my-image-name:v1
+      run: docker build . --file Dockerfile --tag ${{ github.repository }}/${{ github.event.pull_request.head.repo.full_name }}:v1
     
     - name: Tag the Docker image
-      run: docker tag nesrine-snoussi/automating-containerization-api/my-image-name:v1 ${{ secrets.DOCKERHUB_USERNAME }}/automating-containerization-api/my-image-name:v1
+      run: docker tag nesrine-snoussi/automating-containerization-api/my-image-name:v1 ${{ secrets.DOCKERHUB_USERNAME }}/automating-containerization-api:v1
 
     - name: Push the Docker image to Docker Hub
-      run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/automating-containerization-api/my-image-name:v1
+      run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/automating-containerization-api:v1
 
 
